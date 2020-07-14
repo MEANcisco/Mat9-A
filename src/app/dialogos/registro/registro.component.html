@@ -1,0 +1,85 @@
+<button (click)="cerr()">X</button>
+<mat-horizontal-stepper [linear]="true" #stepper>
+  <mat-step >
+
+      <ng-template matStepLabel>Informacion de la cuenta</ng-template><br>
+        <mat-label style="justify-content: center;">Nombre de usuario</mat-label><br>
+        <input matInput placeholder="Usuario" name="prub" [(ngModel)]="informacion.username" required><br>
+        <mat-label>E-mail</mat-label><br>
+        <input matInput placeholder="Correo electornico" name="prub" [(ngModel)]="informacion.email" type="email" required><br>
+        <mat-label>Contraseña</mat-label><br>
+        <input matInput placeholder="Contraseña" name="prub" [(ngModel)]="informacion.password" type="password" required><br>
+        <mat-label>Pais</mat-label><br>
+        <input matInput placeholder="Pais" name="prub" [(ngModel)]="informacion.pais" required><br>
+
+      <div>
+        <button mat-button matStepperNext>Siguiente</button>
+      </div>
+
+  </mat-step>
+  <mat-step >
+
+      <ng-template matStepLabel>Datos Personales</ng-template>
+      <mat-label>Nombre completo</mat-label><br>
+      <input matInput placeholder="Juan Perez" name="prub" [(ngModel)]="informacion.nombrecompleto" required> <br>
+      <mat-label>Rut</mat-label><br>
+      <input matInput placeholder="11.300.000-0" name="prub" [(ngModel)]="informacion.rut" type="email" required><br>
+      <mat-label>Whatsapp</mat-label><br>
+      <input matInput placeholder="+56900000000" name="prub" [(ngModel)]="informacion.whatsapp" required><br>
+      <mat-label>Cursoactual</mat-label><br>
+      <input matInput placeholder="1º Medio" name="prub" [(ngModel)]="informacion.cursoactual" required><br>
+      <div>
+        <button mat-button matStepperPrevious>Atrás</button>
+        <button mat-button matStepperNext>Siguiente</button>
+      </div>
+  </mat-step>
+  <mat-step><br>
+    <ng-template matStepLabel>Datos Apoderado</ng-template>
+    <mat-label>Nombre Apoderado</mat-label><br>
+    <input matInput placeholder="José Perez" name="prub" [(ngModel)]="informacion.nomapod" required><br>
+    <mat-label>Mail Apoderado</mat-label><br>
+    <input matInput placeholder="jperez@mail.com" name="prub" [(ngModel)]="informacion.mailapod" type="email" required><br>
+    <mat-label>Numero Apoderado</mat-label><br>
+    <input matInput placeholder="+56900000000" name="prub" [(ngModel)]="informacion.whatsapod" required><br>
+    <div>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="this.registrar()">Enviar</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+<!-- <mat-horizontal-stepper  #stepper>
+  <mat-step >
+    <form >
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Last name, First name" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form >
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper> -->

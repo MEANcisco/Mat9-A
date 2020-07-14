@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/nicepage.css';
+@import '~bootstrap/dist/css/bootstrap.css';
+@import "~bootstrap/scss/bootstrap";
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+html, body { height: 100%; }
+.sidebar__open {
+  .sidebar {
+    left: 0 !important;
+  }
+
+  .sidebar__overlay {
+    display: block !important;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.myapp-no-padding-dialog .mat-dialog-container {
+  padding: 0;
+  height: 100%;
+  background: #f5f5e6;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  overflow: inherit;
+}
+mat-dialog-content .mat-dialog-content {
+  display: contents;
+  background: #f5f5e6;
+
+}
+@font-face {
+  font-family: tempus;
+  src: url("assets/tempus-sans-itc.ttf");
+}
+h4{font-family: tempus;}
+h3{font-family: tempus;}
+h2{font-family: tempus;}
+h1{font-family: tempus;}
+p{font-family: tempus;}
+dd{font-family: tempus;}
+dt{font-family: tempus;}

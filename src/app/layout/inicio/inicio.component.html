@@ -1,0 +1,72 @@
+<style>
+@font-face {
+  font-family: tempus;
+  src: url("assets/tempus-sans-itc.ttf");
+}
+h4{font-family: tempus;}
+</style>
+
+<div class="u-body u-custom-color-1">
+<section class="u-align-center u-clearfix u-custom-color-1 u-section-1" src="" id="sec-5c35">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <img src="assets/logo_2.png" alt="" class="u-image u-image-default u-image-1" data-image-width="35" data-image-height="44">
+      <img src="assets/output_onlinepngtools.png" alt="" class="u-image u-image-default u-image-2" data-image-width="496" data-image-height="163">
+      <img src="assets/logo_1.png" alt="" class="u-image u-image-default u-image-3" data-image-width="25" data-image-height="38">
+      <h4 class="u-text-1">Cursos Disponibles</h4>
+      <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+            <div class="row" >
+              <div class="col-md-4" *ngFor="let i of videos" style="max-width: 25%;">
+                <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>
+                      <h4> {{i.titulo}}</h4>
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content >
+                    <img style="max-width: 100%;" src="{{i.imagen}}">
+                  </mat-card-content>
+                  <mat-card-footer>
+                  <button mat-button (click)="abrircurso(i)"> Revisar</button>
+                  </mat-card-footer>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="" >
+        <h4 class="u-text-1">Mis Cursos</h4>
+        <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+              <div class="row" >
+                <div class="col-md-4" *ngFor="let i of this.as.UsuarioActual.user.cursos" style="max-width: 25%;">
+                  <mat-card>
+                    <mat-card-header>
+                      <mat-card-title>
+                        <h4> {{i.titulo}}</h4>
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content >
+                      <img style="max-width: 100%;" src="{{i.imagen}}">
+                    </mat-card-content>
+                    <mat-card-footer>
+                    <button mat-button (click)="vercurso(i.contenidos)"> comenzar</button>
+                    </mat-card-footer>
+                  </mat-card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="u-container-style u-group u-palette-3-dark-1 u-group-1" style="margin-top: -60%;">
+        <div class="u-container-layout u-container-layout-5 shadow">
+          <h4 class="center">Contenido</h4>
+          <iframe width="100%" src="https://www.youtube.com/embed/bs6cBIas4VU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <br>
+          <iframe width="100%" src="https://www.youtube.com/embed/qQllR49gz9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+  </section>
+</div>

@@ -1,0 +1,123 @@
+<br><br><br><br><br>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+      <div class="ui orange card">
+        <div class="image">
+          <img  src="{{this.as.avtr}}">
+          <div class="ui vertical animated button" (click)='upload()'  tabindex="1">
+            <div class="hidden content">Subir</div>
+            <div class="visible content">
+              <i class="camera retro
+              icon"></i>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <a class="header">{{this.as.UsuarioActual.user.nombrecompleto}}</a>
+          <div class="meta">
+            <span class="date">Se unió {{this.as.UsuarioActual.user.createdAt | date}}</span>
+          </div>
+          <div class="description">
+Descripciòn alumno          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="user icon"></i>
+          </a>
+        </div>
+      </div>
+		</div>
+		<div class="col-md-8">
+      <div class="ui pointing menu">
+        <a (click)="activate(0)" class="{{menus[0]}}">
+          Información
+        </a>
+        <a (click)="activate(1)"  class="{{menus[1]}}">
+          Resutados
+        </a>
+        <a (click)="activate(2)" class="{{menus[2]}}">
+          Preguntas
+        </a>
+
+      </div>
+
+
+      <mat-card *ngIf="this.t1">
+        <!-- .payload.doc.data() -->
+        <div class="ui celled list" *ngFor="let item of evaluaciones" >
+          <div class="item">
+            <i class="book icon"></i>
+            <div class="content">
+              <div class="header">{{item.payload.doc.data().titulo}}</div>
+          <a>    Fecha: {{item.payload.doc.data().fecha | date}} Puntaje: {{item.payload.doc.data().puntaje | number: '0.0-0'}}, Buenas: {{item.payload.doc.data().buenas}}         </a> </div>
+          </div>
+        </div>
+      </mat-card>
+
+      <div class="container" *ngIf="this.t">
+      <div class="ui input segment">
+
+        <div class="field">
+          <input type="text" placeholder="{{this.as.UsuarioActual.user.nombrecompleto}}" [(ngModel)]="this.user.nombrecompleto">
+          <div class="ui pointing label">
+Nombre Completo          </div>
+        </div>
+        <div class="field">
+          <input type="email" placeholder="{{this.as.UsuarioActual.user.email}}" [(ngModel)]="this.user.email">
+          <div class="ui pointing label">
+E-mail          </div>
+        </div>
+        <div class="field">
+          <input type="text" placeholder="{{this.as.UsuarioActual.user.whatsapp}}" [(ngModel)]="this.user.whatsapp">
+          <div class="ui pointing label">
+           Whatsapp
+          </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+<br>
+
+
+
+
+</div>
+<div>
+<div class="ui input segment">
+
+  <div class="field" *ngif="this.t">
+    <input type="text" placeholder="{{this.as.UsuarioActual.user.nomapod}}" [(ngModel)]="this.user.nomapod">
+    <div class="ui pointing label">
+Nombre Apoderado          </div>
+  </div>
+  <div class="field">
+    <input type="email" placeholder="{{this.as.UsuarioActual.user.mailapod}}" [(ngModel)]="this.user.mailapod">
+    <div class="ui pointing label">
+E-mail Apoderado          </div>
+  </div>
+  <div class="field">
+    <input type="text" placeholder="{{this.as.UsuarioActual.user.whatsapod}}" [(ngModel)]="this.user.whatsapod">
+    <div class="ui pointing label">
+     Whatsapp Apoderado
+    </div>
+  </div>
+</div>
+<br>
+
+</div>
+<div class="ui input segment">
+  <button class="positive ui button" (click)='actualizar()' >Actualizar</button>
+
+</div>
+		</div>
+	</div>
+</div>

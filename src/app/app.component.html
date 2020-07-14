@@ -1,0 +1,29 @@
+<app-sidebar id="sidebar-1" [title]="'Inicio'">
+  <h4 *ngIf="!this.as.UsuarioActual" (click)="clilog(1)" >Acceder</h4>
+  <h4 *ngIf="!this.as.UsuarioActual" (click)="clilog(2)" >Registrar</h4>
+  <h3 [routerLink]="['/']" >Inicio</h3>
+<h3 *ngIf="this.as.UsuarioActual" (click)="logoff()" > Desconectarse</h3>
+
+          <button (click)="sideCerr()">Cerrar</button>
+        </app-sidebar>
+  <style>
+      @font-face {
+        font-family: tempus;
+        src: url("assets/tempus-sans-itc.ttf");
+      }
+      h4{font-family: tempus;}
+      h3{font-family: tempus;}
+      h2{font-family: tempus;}
+      h1{font-family: tempus;}
+      p{font-family: tempus;}
+      dd{font-family: tempus;}
+      </style>
+      <body class="u-body u-custom-color-1">
+      <section class="u-align-center u-clearfix u-custom-color-1 u-section-1" src="" id="sec-5c35">
+          <div class="u-clearfix u-sheet u-sheet-1">
+            <fa-icon stackItemSize="2x" (click)="sideBact()" style="margin-left: -70%; margin-top: 400px;" [icon]="faAlignLeft"></fa-icon>
+
+            <router-outlet></router-outlet>
+          </div>
+        </section>
+      </body>

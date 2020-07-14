@@ -1,0 +1,102 @@
+ <mat-dialog-content style="background-color: #f5f5e6; max-height: none;">
+    <button class="close" mat-button (click)="Cerrar()">X</button>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="row">
+				<div class="col-md-12" style="height: 25%; margin-top: 50px; margin-bottom: 50px;">
+          <div class="row">
+        <div class="col-md-8"><h3>
+						{{curso.titulo}}
+          </h3></div>
+
+        </div>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<dl>
+						<dt>
+							Descripción
+						</dt>
+						<dd>
+							{{this.data.descripcion}}
+						</dd>
+						<dt>
+							Duración
+						</dt>
+						<dd>
+{{this.data.duracion}}
+            </dd>
+						<dt>
+Tipo: 						</dt>
+						<dd>
+							{{data.tipo}}
+						</dd>
+						<dt>
+							Dificultad:
+						</dt>
+						<dd>
+							{{data.dificultad}}
+						</dd>
+						<dt>
+Precio:            </dt>
+            <dt>
+						$	{{data.precio}}
+						</dt>
+					</dl>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table">
+<h1> Contenidos</h1>
+            <div class="ui inverted segment">
+              <div class="ui inverted relaxed divided list" *ngFor="let item of data.contenidos">
+                <div class="item">
+
+                  <div class="content">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <button class="ui icon button">
+                          <i class="play icon"></i>
+                        </button>
+
+                      </div>
+                      <div class="col-md-10">  <div class="header">{{item.titulo}}</div>
+{{item.categoria}}</div>
+                    </div>
+
+                                    </div>
+                </div>
+              </div>
+            </div>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4" style="margin-top: 5%;">
+		<mat-card>
+      <mat-card-header>
+        <h2>{{data.seccion}}</h2>
+      </mat-card-header>
+      <mat-card-content >
+        <img style="max-height: 230px; max-width: 230px;" src="{{this.curso.imagen}}">
+
+  </mat-card-content>
+      <mat-card-footer><div style="max-width: 100%; max-height: auto;">
+        <div class="ui vertical animated button" tabindex="0">
+          <div class="hidden content">Comprar</div>
+          <div class="visible content">
+            <i class="shop icon"></i>
+          </div>
+        </div>
+<button class="button btn-success" (click)="abrircurso()">Adquirir curso</button>
+        </div></mat-card-footer>
+    </mat-card>
+		</div>
+	</div>
+</div>
+</mat-dialog-content>

@@ -1,0 +1,23 @@
+
+<div class="ui card">
+  <button (click)="              this.dialog.close();
+  " >X</button>
+  <div class="image">
+    <img src="{{img}}">
+  </div>
+  <div class="content">
+    <div class="description">
+
+<div class="form-group col-12">
+  <input type="file"
+  id="file"
+  #userPhoto
+  (change)="onFileSelected($event)"
+  name="image"
+  autocomplete="off"
+  />
+ </div>
+
+    </div>
+  </div>
+</div>

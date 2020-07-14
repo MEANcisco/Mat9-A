@@ -1,0 +1,21 @@
+<div id='sidebar-1' class="sidebar" [style.width.px]="width">
+  <div class="sidebar__header">
+    <div class="img bg-wrap text-center py-4">
+      <div class="user-logo">
+        <img *ngIf="this.as.UsuarioActual" class="img" src="{{this.as.avtr}}">
+        <p *ngIf="this.as.UsuarioActual">{{this.as.UsuarioActual.user.nombrecompleto}}</p>
+        <h3 *ngIf="this.as.UsuarioActual" [routerLink]="['/perfil']" >Mi perfil</h3>
+      </div>
+    </div>
+    <button class="close" (click)="this.close()">
+      <i class="indent icon"></i>
+          </button>
+  </div>
+  <div class="sidebar__body">
+    <ng-content></ng-content>
+  </div>
+  <div class="sidebar__grabber">
+    <i class="compress icon"></i>
+  </div>
+</div>
+<div class="sidebar__overlay"></div>

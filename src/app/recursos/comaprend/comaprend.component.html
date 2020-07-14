@@ -1,0 +1,174 @@
+<div class="container">
+  <mathjax></mathjax>
+
+<div [ngStyle]="isprueba()" class="container-fluid">
+	<div class="row">
+		<div class="col-md-8">
+    <div *ngIf="isreload">
+      <app-vjs-player class="vjs-layout-medium" [options]="{ autoplay: false,fluid: true, controls: true, sources: [{ src: this.infoact.video, type: 'video/mp4' }]}"></app-vjs-player>
+    </div>
+</div>
+    <div class="col-md-4 content" style="border-color: brown;">
+      <h2>Contenidos</h2>
+        <div class="ui inverted segment" *ngFor="let item of this.datosl; let i=index">
+          <div class="ui inverted relaxed ">
+            <div class="item">
+              <div class="content">
+                <div class="row">
+                  <div class="col-md-4">
+                    <i (click)="this.cargadat((test(i))); this.rs.stposi(i)" class="play circle icon"></i>
+
+                  </div>
+                  <div class="col-md-8">  <div class="header">{{item.titulo}}</div>  </div>
+                          </div></div>
+
+            </div>
+          </div>
+        </div>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+      <h2>---------------------------------------------------------</h2>
+      <h2 valueChangeEvent="this.">{{this.infoact.titulo}}</h2>
+      <h3>{{this.infoact.categoria}}</h3>
+
+			<ul class="list-group" *ngFor="let com of coments">
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-2">
+              <img class="circular--square" src="woman.png" />
+            </div>
+          <div class="col-md-10">
+
+            <h4>
+              {{com.payload.doc.data().nomusu}}
+            </h4>
+            <p>{{com.payload.doc.data().comentario}} </p>
+            <a>Fecha: </a>
+          </div>
+          </div>
+        </li>
+      </ul>
+
+      <mat-card  class="center">
+
+        <mat-card-content>
+            <mat-label>Deja un comentario</mat-label>
+            <div class="field">
+              <textarea [(ngModel)]="this.comentario.comentario" rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 92px; width: 90%;"></textarea>
+            </div>
+        </mat-card-content>
+        <mat-card-footer>
+
+    <button (click)="comentar()" class="ui green button">Comentar</button>
+
+
+        </mat-card-footer>
+      </mat-card>
+
+		</div>
+
+	</div>
+</div>
+
+<div [ngStyle]="isvideo()" style="background-color: #f5f5e6;" >
+  <div class="row" style="max-width: 300px;">
+    <div class="col-md-6">   <p>Tiempo Restante:</p>
+</div><div class="col-md-6"> <br>  <countdown class="center" #cd [config]="{ leftTime: [tiempomaximo], format: 'HH:mm:ss' }" (event)="verevento($event)"></countdown>
+</div>   </div>
+  <mat-horizontal-stepper style="margin-top: 5%;" [linear]="false" #stepper style="background-color: #f5f5e6;">
+    <mat-step>
+      <ng-template *ngIf="this.started === false" matStepLabel></ng-template>
+      <h5>Comenzar con prueba:</h5>
+      <p>{{infoact.titulo}}</p>
+      <h5>Con duración de:</h5>
+<p>{{infoact.duracion}}</p>
+      <div>
+        <button class="ui primary button"(click)="cosita();"> Iniciar Prueba
+
+        </button>
+        <button class="ui red button" (click)="this.rs.volver();">Volver
+        </button>
+      </div>
+    </mat-step>
+<div *ngIf="started">
+    <mat-step *ngFor="let item of this.infoact.preguntas; let i=index" style="display: none;">
+
+      <ng-template matStepLabel></ng-template>
+      <mathjax [content]=""></mathjax>
+     {{item.enunciado}}
+     <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <label> A:</label>
+            <input [disabled]="!started" (click)="checkboxes(i, 'a')" *ngIf="started" type="checkbox" [(ngModel)]="Preguntas[i].A">
+            <p>{{item.ra}}</p>
+           </div>
+           <img src="{{item.ima}}" style="max-height: 150px; margin-top: -40px; margin-left: 40px;">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <label> B:</label>
+           <input [disabled]="!started" (click)="checkboxes(i, 'b')" *ngIf="started" type="checkbox" [(ngModel)]="Preguntas[i].B">
+           <p>{{item.rb}}</p>
+
+           </div>
+<img src="{{item.imb}}" style="max-height: 150px; margin-top: -40px; margin-left: 40px;">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <label> C:</label>
+           <input [disabled]="!started" (click)="checkboxes(i, 'c')" *ngIf="started" type="checkbox" [(ngModel)]="Preguntas[i].C">
+           <p>{{item.rc}}</p>
+
+
+           </div>   <img src="{{item.imc}}" style="max-height: 150px; margin-top: -40px; margin-left: 40px;">
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <label> D:</label>
+           <input [disabled]="!started" (click)="checkboxes(i, 'd')" *ngIf="started" type="checkbox" [(ngModel)]="Preguntas[i].D">
+           <p>{{item.rd}}</p>
+
+           </div>           <img src="{{item.imd}}" style="max-height: 150px; margin-top: -40px; margin-left: 40px;">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <label> E:</label>
+           <input [disabled]="!started" (click)="checkboxes(i, 'e')" *ngIf="started" type="checkbox" [(ngModel)]="Preguntas[i].E">
+           <p>{{item.re}}</p>
+           </div>           <img src="{{item.ime}}" style="max-height: 150px; margin-top: -40px; margin-left: 40px;">
+
+        </div>
+        <div class="col-md-6">
+          <div class="center">
+            <p *ngIf="!started" >{{item.respuesta}}</p>
+            <button *ngIf="started"  class="ui olive button"(click)="stepper.next(); stepper.disableRipple">Siguiente</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </mat-step>
+</div>
+    <mat-step>
+      <ng-template matStepLabel>listo</ng-template>
+      <p>Prueba de {{this.infoact.titulo}} terminada!</p>
+      <p>Puntaje total: {{this.rs.puntajefinal}} </p>
+      <div>
+        <!-- <button mat-button >Terminar</button>
+        <button mat-button (click)="stepper.reset()">Reset</button> -->
+        <button class="ui green button" (click)="finalizar()" [disabled]="this.rs.puntajefinal > 149">Terminar</button>
+
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+</div>
